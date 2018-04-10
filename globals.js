@@ -8,6 +8,8 @@ var halfHeight = height / 2.0;
 var canvas;
 var plot;
 
+var frameSkipped = 0;
+
 var mouseClick = {
 	start: { x: 0, y: 0 },
 	stop: { x: 0, y: 0 }

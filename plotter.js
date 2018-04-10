@@ -22,15 +22,14 @@ function setup()
 
 function draw()
 {
-
-	if(state.standby == true)
-	{
-		if(state.updatingDOM == true) // avoid unnecessary DOM tree updates
-		{
-			state.updatingDOM = false;
-			updateDOMTags(0); // Standby
-		}
-	}
+    if(state.standby == true)
+    {
+        if (state.updatingDOM == true) // avoid unnecessary DOM tree updates
+        {
+            state.updatingDOM = false;
+            updateDOMTags(0); // Standby
+        }
+    }
 
 	if(state.plotting == true)
 	{
@@ -56,7 +55,7 @@ function draw()
 
 		if(state.updatingDOM == false) // Need to skip some frames to let the DOM tree update otherwhise the "Computing" state won't show
 		{
-			compute(); // Make it asynchronous
+			setTimeout(compute(), 10); // Make it asynchronous
 			
 			state.computing = false;
 			state.plotting = true;
@@ -64,12 +63,14 @@ function draw()
 			state.updatingDOM = true;
 			updateDOMTags(1); // Plotting
 			updateCoordTags();
-
 		}
 
 		if(state.updatingDOM == true)  // The frame is skipped next frame we can compute
-		{ 
-			state.updatingDOM = false; 
+		{
+		    if(frameSkipped++ == 10) {
+                state.updatingDOM = false;
+                frameSkipped = 0;
+            }
 		}
 	}
 

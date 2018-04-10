@@ -1,5 +1,6 @@
 function mousePressed(event)
 {
+
 	if(mouseX >= 0 && mouseX <= width)
 	{
 		if(mouseY >= 0 && mouseY <= height)

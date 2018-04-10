@@ -51,5 +51,4 @@ function refreshPlot()
 	state.updatingDOM = true;
 	loadFormula();
 	updateDOMTags(3);
-	compute();
 }
