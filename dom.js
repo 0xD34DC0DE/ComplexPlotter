@@ -4,6 +4,7 @@ function loadDOMTags()
 	formulaInputTag = document.getElementById("formulaInputTag");
 	coordLTTag = document.getElementById("coordLTTag");
 	coordBRTag = document.getElementById("coordBRTag");
+	canvasSizeInputTag = document.getElementById("canvasSizeInputTag");
 }
 
 function updateDOMTags(state)
@@ -38,4 +39,15 @@ function updateCoordTags()
 {
 	coordLTTag.innerHTML = region.lt.x + "," + region.lt.y;
 	coordBRTag.innerHTML = region.br.x + "," + region.br.y;
+}
+
+function parseResizeInputTag()
+{
+	var regx = /(\d+,\d+)/g;
+	var newSizeString = canvasSizeInputTag.value;
+	newSizeString.match(regx);
+	var sizes = newSizeString.split(',');
+	width = parseInt(sizes[0]);
+    height = parseInt(sizes[1]);
+    refreshPlot();
 }

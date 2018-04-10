@@ -40,6 +40,12 @@ function compute()
 
 function refreshPlot()
 {
+    if(canvas.width != width || canvas.height != height) {
+        resizeCanvas(width, height, true);
+
+        plot = createGraphics(width, height);
+        plot.colorMode(HSB, 1.0);
+    }
 	state.computing = true;
 	state.standby = false;
 	state.updatingDOM = true;

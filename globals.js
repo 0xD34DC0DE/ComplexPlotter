@@ -1,9 +1,9 @@
-const width = 2**8;
-const height = 2**8;
+var width = 2**8;
+var height = 2**8;
 
 
-const halfWidth= width / 2.0;
-const halfHeight = height / 2.0;
+var halfWidth= width / 2.0;
+var halfHeight = height / 2.0;
 
 var canvas;
 var plot;
@@ -30,6 +30,7 @@ var stateTag;
 var formulaInputTag;
 var coordLTTag;
 var coordBRTag;
+var canvasSizeInputTag;
 
 var zDef = math.compile("z = x + (y * i)"); // Complex number
 var formula;
