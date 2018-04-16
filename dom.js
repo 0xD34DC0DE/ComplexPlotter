@@ -5,6 +5,7 @@ function loadDOMTags()
 	coordLTTag = document.getElementById("coordLTTag");
 	coordBRTag = document.getElementById("coordBRTag");
 	canvasSizeInputTag = document.getElementById("canvasSizeInputTag");
+	canvasRegionOverrideInputTag = document.getElementById("regionOverrideInputTag");
 }
 
 function updateDOMTags(state)
@@ -50,4 +51,19 @@ function parseResizeInputTag()
 	width = parseInt(sizes[0]);
     height = parseInt(sizes[1]);
     refreshPlot();
+}
+
+function parseRegionOverrideInputTag() 
+{
+	var regx = /(\d+,\d+):(\d+,\d+)/g;
+	var newRegionString = canvasRegionOverrideInputTag.value;
+	newRegionString.match(regx);
+	var newCoords = newRegionString.split(':');
+	var lt = newCoords[0].split(',');
+	var br = newCoords[1].split(',');
+	region.lt.x = parseInt(lt[0]);
+	region.lt.y = parseInt(lt[1]);
+	region.br.x = parseInt(br[0]);
+	region.br.y = parseInt(br[1]);
+	refreshPlot();
 }

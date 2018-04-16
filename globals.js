@@ -33,6 +33,7 @@ var formulaInputTag;
 var coordLTTag;
 var coordBRTag;
 var canvasSizeInputTag;
+var canvasRegionOverrideInputTag;
 
 var zDef = math.compile("z = x + (y * i)"); // Complex number
 var formula;
